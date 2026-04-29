@@ -22,6 +22,31 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.7; }
 
+  .resume-button {
+  display: inline-block;
+  /* This padding makes it longer and bigger */
+  padding: 16px 45px; 
+  
+  /* Use this darker, premium gold */
+  background-color: #C19A2D; 
+  color: #000000;
+  
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.1rem;    /* Larger text */
+  font-weight: 800;     /* Thicker letters */
+  letter-spacing: 2px;  /* Modern spacing */
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.resume-button:hover {
+  background-color: #FDD023; /* Brightens up when you touch it */
+  transform: translateY(-3px); /* Subtle lift effect */
+}
+
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(13,14,18,0.92); backdrop-filter: blur(10px);
@@ -40,7 +65,21 @@
     min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
     padding-top: 80px; max-width: 100%; position: relative; overflow: hidden;
   }
-  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+  .hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This pushes text left and image right */
+  text-align: left;               /* This aligns the text to the left */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-text-container {
+  flex: 1;                        /* This makes the text take up the left side */
+}
   .hero-tag {
     display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: var(--accent); border: 1px solid var(--accent); padding: 4px 12px;
@@ -51,9 +90,28 @@
     line-height: 0.92; letter-spacing: 3px; color: var(--text); margin-bottom: 1.5rem;
   }
   h1.hero-name span { color: var(--accent); }
-  .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; }
-  .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
-  .hero-meta-item { display: flex; flex-direction: column; }
+  .hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 540px;
+  margin-bottom: 0.5rem; /* Changed from 2.5rem to pull the bottom part up */
+}
+    .hero-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;    /* Reduced to pull it closer to the text */
+  padding-top: 1rem;     /* Reduced space between the line and the words */
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the label over the value */
+    text-align: center;
+  }
   .hero-meta-item .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
   .hero-meta-item .value { font-size: 1rem; font-weight: 500; color: var(--accent2); }
   .hero-bg-text {
@@ -79,8 +137,27 @@
   .resume-box { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
   .resume-box p { color: var(--muted); max-width: 500px; }
   .btn { display: inline-block; padding: 12px 28px; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
-  .btn-primary { background: var(--accent); color: #0d0e12; }
-  .btn-primary:hover { background: var(--accent2); }
+  .btn-primary {
+    background: transparent; /* Makes the box clear so the yellow border pops */
+    color: var(--accent);    /* Uses your yellow/gold color for the text */
+    border: 2px solid var(--accent); /* This adds the yellow box */
+  
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: #0d0e12; /* Text turns dark when you hover over the yellow box */
+}
 
   .projects-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
   .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2rem 2.5rem; position: relative; overflow: hidden; transition: border-color 0.25s; }
@@ -126,11 +203,23 @@
 </nav>
 
 <div id="hero">
-  <div class="hero-bg-text">ME</div>
   <div class="hero-inner">
-    <div class="hero-tag">Mechanical Engineering Portfolio</div>
-    <h1 class="hero-name">CEDRICK<br><span>ZIEGLER</span></h1>
-    <p class="hero-sub">Engineering student at Louisiana State University building the technical foundation to design, analyze, and innovate in the physical world.</p>
+    
+    <div class="hero-text-container">
+      <div class="hero-tag">Mechanical Engineering Portfolio</div>
+      <h1 class="hero-name">CEDRICK <br><span>ZIEGLER</span></h1>
+      <p class="hero-sub">
+        A mechanical engineering student at Louisiana State University building the technical 
+        foundation to design, analyze, and innovate the world.
+      </p>
+    </div>
+
+    <div class="hero-image-container">
+      <img src="Me.jpg" alt="Cedrick Ziegler" style="width: 400px; height: 500px; object-fit: cover; border-radius: 20px; opacity: 0.9;">
+    </div>
+
+  </div>
+</div>
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span class="label">University</span>
@@ -154,8 +243,8 @@
   <div class="divider"></div>
   <div class="about-grid">
     <div>
-      <p>Welcome. I'm Cedrick Ziegler, a first-year Mechanical Engineering student at LSU with a drive to understand how things work — and the ambition to make them work better.</p>
-      <p>From dissecting everyday objects to modeling precision components in CAD, I'm developing the hands-on technical skills and analytical mindset that define great engineers. My coursework has pushed me to think rigorously about design, manufacturing, and communication — because the best engineering solutions mean nothing if they can't be clearly conveyed.</p>
+      <p>Welcome. I'm Cedrick Ziegler, I am a first-year Mechanical Engineering student at LSU with a drive to understand how things work — and make them work better.</p>
+      <p>From dissecting everyday objects to modeling precision components in CAD, I'm developing the hands-on technical skills and analytical mindset that are required for a great engineer. My coursework has pushed me to think rigorously about design, manufacturing, and communication — because the best engineering solutions mean nothing if they can't be clearly conveyed to others.</p>
       <p>This portfolio showcases my early work in technical drawing, reverse engineering, and 3D modeling. I'm just getting started.</p>
       <div class="skills-list">
         <span class="skill-tag">Fusion 360</span>
@@ -169,7 +258,7 @@
     <div>
       <div class="stat-row">
     <div class="stat-block" style="flex:1">
-      <img src="Me.jpg" alt="Cedrick Ziegler" style="width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
+      <div class="big">ME</div>
       <div class="stat-label">Major</div>
     </div>
         <div class="stat-block" style="flex:1">
@@ -195,28 +284,40 @@
         <h3 style="font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Professional Resume</h3>
         <p>A comprehensive overview of my academic background, technical skill set, coursework, and project experience — formatted and ready for potential employers and internship opportunities.</p>
       </div>
-      <a href="#" class="btn btn-primary">View Resume</a>
+      <a href="Resume.pdf" target="_blank" class="resume-button">VIEW RESUME</a>
     </div>
   </div>
 </section>
 
 <section id="projects">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2rem; width: 100%;">
   <p class="section-label">Engineering Work</p>
   <h2 class="section-title">PROJECTS</h2>
   <div class="divider"></div>
   <div class="projects-grid">
     <div class="project-card">
       <div class="project-number">01</div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2rem; width: 100%;">
       <p class="project-type">Team Report &mdash; Reverse Engineering</p>
       <h3>REVERSE ENGINEERING TEAM REPORT</h3>
-      <p>In this collaborative project, our team selected a common mechanical device and systematically reverse engineered it to uncover its design intent, manufacturing methods, and material choices. The goal was to develop a thorough understanding of how professional engineers document and analyze existing products — a critical skill in competitive benchmarking, product development, and quality control.</p>
-      <p>My primary contribution focused on the <strong style="color: var(--accent2); font-weight: 500;">assembly and disassembly documentation</strong> — methodically recording each stage of the teardown process, capturing component relationships, part counts, and sequence-of-assembly logic. I created clear, structured documentation that allowed our team to accurately reconstruct the device and identify key design decisions made by the original manufacturer.</p>
+      <p style="text-align: center;">
+        In this collaborative project, our team selected an electric rotary sander and reverse engineered it to uncover its design intent, manufacturing methods, and material choices. The goal was to develop a thorough understanding of how professional engineers document and analyze existing products, which is a critical skill in competitive benchmarking, product development, and quality control.
+      </p>
+      <p style="text-align: center;">
+        My primary contribution focused on the <strong style="color: var(--accent2); font-weight: 500;">assembly and disassembly documentation</strong> and <strong style="color: var(--accent2); font-weight: 500;">the drivetrain system</strong> — recording each stage of the teardown process, capturing component relationships, the transfer of energy, and identifying the power path. By analyzing the drivetrain's layout, I identified the sequence-of-assembly logic and part interdependencies required for the device to function. I also created clear, structured documentation that allowed our team to accurately reconstruct the device and identify key design decisions made by the original manufacturer.</p>
       <div class="project-tags">
         <span class="project-tag">Team Collaboration</span>
         <span class="project-tag">Technical Documentation</span>
         <span class="project-tag">Assembly Analysis</span>
-        <span class="project-tag">Product Teardown</span>
+        <span class="project-tag">Power Transmission Mapping</span>
         <span class="project-tag">Manufacturing Inference</span>
+        </div>
+
+        <a href="Reverse Engineering Report Group 2-6.pdf" target="_blank" class="resume-button">
+          VIEW FULL REPORT ↗
+      </a>
+
+        </div>
       </div>
     </div>
   </div>

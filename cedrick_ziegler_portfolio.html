@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cedrick Ziegler | Mechanical Engineering Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0e12;
+    --surface: #15171e;
+    --surface2: #1c1f28;
+    --accent: #e8a020;
+    --accent2: #f0c060;
+    --text: #f0ede8;
+    --muted: #8a8d98;
+    --border: rgba(255,255,255,0.07);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,14,18,0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 60px;
+  }
+  nav .logo { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 2px; color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  nav ul a:hover { color: var(--accent); }
+
+  section { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+
+  #hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding-top: 80px; max-width: 100%; position: relative; overflow: hidden;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+  .hero-tag {
+    display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent); padding: 4px 12px;
+    border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  h1.hero-name {
+    font-family: var(--font-display); font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.92; letter-spacing: 3px; color: var(--text); margin-bottom: 1.5rem;
+  }
+  h1.hero-name span { color: var(--accent); }
+  .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; }
+  .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; flex-direction: column; }
+  .hero-meta-item .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+  .hero-meta-item .value { font-size: 1rem; font-weight: 500; color: var(--accent2); }
+  .hero-bg-text {
+    position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+    font-family: var(--font-display); font-size: clamp(10rem, 22vw, 18rem);
+    color: rgba(232,160,32,0.04); letter-spacing: 10px; line-height: 1;
+    pointer-events: none; user-select: none;
+  }
+
+  .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  h2.section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; line-height: 1; margin-bottom: 2.5rem; color: var(--text); }
+  .divider { width: 48px; height: 2px; background: var(--accent); margin-bottom: 2rem; }
+
+  #about .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  #about p { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+  .skill-tag { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 14px; border: 1px solid rgba(232,160,32,0.35); color: var(--accent2); border-radius: 2px; background: rgba(232,160,32,0.05); }
+  .stat-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; }
+  .stat-block .big { font-family: var(--font-display); font-size: 3.5rem; color: var(--accent); line-height: 1; }
+  .stat-block .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+  .stat-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
+
+  .resume-box { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .resume-box p { color: var(--muted); max-width: 500px; }
+  .btn { display: inline-block; padding: 12px 28px; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--accent); color: #0d0e12; }
+  .btn-primary:hover { background: var(--accent2); }
+
+  .projects-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2rem 2.5rem; position: relative; overflow: hidden; transition: border-color 0.25s; }
+  .project-card:hover { border-color: rgba(232,160,32,0.35); }
+  .project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); }
+  .project-number { font-family: var(--font-display); font-size: 4rem; color: rgba(232,160,32,0.08); position: absolute; right: 1.5rem; top: 1rem; line-height: 1; }
+  .project-type { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .project-card h3 { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 1.5px; margin-bottom: 0.75rem; color: var(--text); }
+  .project-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+  .project-tag { font-size: 0.72rem; padding: 3px 10px; border: 1px solid var(--border); color: var(--muted); border-radius: 2px; }
+
+  .drawings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .drawing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: border-color 0.25s; }
+  .drawing-card:hover { border-color: rgba(232,160,32,0.35); }
+  .drawing-preview { height: 200px; background: var(--surface2); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .blueprint-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(232,160,32,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(232,160,32,0.04) 1px, transparent 1px); background-size: 24px 24px; }
+  .drawing-body { padding: 1.25rem 1.5rem; }
+  .drawing-body h3 { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.4rem; }
+  .drawing-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  footer { background: var(--surface); border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--muted); }
+  footer span { color: var(--accent); }
+
+  @media (max-width: 700px) {
+    nav ul { gap: 1rem; }
+    #about .about-grid { grid-template-columns: 1fr; }
+    .drawings-grid { grid-template-columns: 1fr; }
+    .stat-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">CZ</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#drawings">Drawings</a></li>
+  </ul>
+</nav>
+
+<div id="hero">
+  <div class="hero-bg-text">ME</div>
+  <div class="hero-inner">
+    <div class="hero-tag">Mechanical Engineering Portfolio</div>
+    <h1 class="hero-name">CEDRICK<br><span>ZIEGLER</span></h1>
+    <p class="hero-sub">Engineering student at Louisiana State University building the technical foundation to design, analyze, and innovate in the physical world.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">University</span>
+        <span class="value">Louisiana State University</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Major</span>
+        <span class="value">Mechanical Engineering</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Expected Graduation</span>
+        <span class="value">May 2029</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <p class="section-label">Who I Am</p>
+  <h2 class="section-title">ABOUT ME</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div>
+      <p>Welcome. I'm Cedrick Ziegler, a first-year Mechanical Engineering student at LSU with a drive to understand how things work — and the ambition to make them work better.</p>
+      <p>From dissecting everyday objects to modeling precision components in CAD, I'm developing the hands-on technical skills and analytical mindset that define great engineers. My coursework has pushed me to think rigorously about design, manufacturing, and communication — because the best engineering solutions mean nothing if they can't be clearly conveyed.</p>
+      <p>This portfolio showcases my early work in technical drawing, reverse engineering, and 3D modeling. I'm just getting started.</p>
+      <div class="skills-list">
+        <span class="skill-tag">Fusion 360</span>
+        <span class="skill-tag">Technical Sketching</span>
+        <span class="skill-tag">GD&T Dimensioning</span>
+        <span class="skill-tag">Reverse Engineering</span>
+        <span class="skill-tag">CAD Modeling</span>
+        <span class="skill-tag">Assembly Documentation</span>
+      </div>
+    </div>
+    <div>
+      <div class="stat-row">
+        <div class="stat-block" style="flex:1">
+          <div class="big">ME</div>
+          <div class="stat-label">Major</div>
+        </div>
+        <div class="stat-block" style="flex:1">
+          <div class="big">'29</div>
+          <div class="stat-label">Class of</div>
+        </div>
+      </div>
+      <div class="stat-block">
+        <div class="big">LSU</div>
+        <div class="stat-label">Louisiana State University — Baton Rouge, LA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume" style="background: var(--surface); max-width: 100%; padding: 5rem 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;">
+    <p class="section-label">Career Readiness</p>
+    <h2 class="section-title">RESUME</h2>
+    <div class="divider"></div>
+    <div class="resume-box">
+      <div>
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Professional Resume</h3>
+        <p>A comprehensive overview of my academic background, technical skill set, coursework, and project experience — formatted and ready for potential employers and internship opportunities.</p>
+      </div>
+      <a href="#" class="btn btn-primary">View Resume</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="section-label">Engineering Work</p>
+  <h2 class="section-title">PROJECTS</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-number">01</div>
+      <p class="project-type">Team Report &mdash; Reverse Engineering</p>
+      <h3>REVERSE ENGINEERING TEAM REPORT</h3>
+      <p>In this collaborative project, our team selected a common mechanical device and systematically reverse engineered it to uncover its design intent, manufacturing methods, and material choices. The goal was to develop a thorough understanding of how professional engineers document and analyze existing products — a critical skill in competitive benchmarking, product development, and quality control.</p>
+      <p>My primary contribution focused on the <strong style="color: var(--accent2); font-weight: 500;">assembly and disassembly documentation</strong> — methodically recording each stage of the teardown process, capturing component relationships, part counts, and sequence-of-assembly logic. I created clear, structured documentation that allowed our team to accurately reconstruct the device and identify key design decisions made by the original manufacturer.</p>
+      <div class="project-tags">
+        <span class="project-tag">Team Collaboration</span>
+        <span class="project-tag">Technical Documentation</span>
+        <span class="project-tag">Assembly Analysis</span>
+        <span class="project-tag">Product Teardown</span>
+        <span class="project-tag">Manufacturing Inference</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="drawings" style="background: var(--surface); max-width: 100%; padding: 5rem 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;">
+    <p class="section-label">Technical Documentation</p>
+    <h2 class="section-title">TECHNICAL DRAWINGS</h2>
+    <div class="divider"></div>
+    <div class="drawings-grid">
+
+      <div class="drawing-card">
+        <div class="drawing-preview">
+          <div class="blueprint-grid"></div>
+          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="z-index:1; opacity:0.3;">
+            <rect x="10" y="40" width="100" height="18" rx="2" stroke="#e8a020" stroke-width="1.5"/>
+            <rect x="10" y="20" width="60" height="22" rx="2" stroke="#e8a020" stroke-width="1.5"/>
+            <line x1="10" y1="40" x2="10" y2="8" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="3 2"/>
+            <line x1="110" y1="58" x2="110" y2="72" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="3 2"/>
+            <line x1="5" y1="10" x2="75" y2="10" stroke="#e8a020" stroke-width="0.75"/>
+            <text x="40" y="8" fill="#e8a020" font-size="6" text-anchor="middle" font-family="monospace">3.50"</text>
+          </svg>
+        </div>
+        <div class="drawing-body">
+          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Hand-Drawn &mdash; Dimensioned Sketch</p>
+          <h3>Stapler Teardown Drawing</h3>
+          <p>This hand-drawn dimensioned drawing was produced following a physical teardown of a standard desktop stapler. Creating this document required careful measurement with calipers, application of standard dimensioning conventions (including tolerance notation and reference lines), and the ability to translate a three-dimensional object into clear orthographic views. Freehand technical sketching remains a foundational engineering skill — fast, portable, and essential for rapid design communication in the field.</p>
+        </div>
+      </div>
+
+      <div class="drawing-card">
+        <div class="drawing-preview">
+          <div class="blueprint-grid"></div>
+          <svg width="130" height="90" viewBox="0 0 130 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="z-index:1; opacity:0.3;">
+            <rect x="15" y="15" width="80" height="50" rx="2" stroke="#e8a020" stroke-width="1.5"/>
+            <rect x="95" y="30" width="20" height="20" rx="1" stroke="#e8a020" stroke-width="1"/>
+            <circle cx="35" cy="35" r="8" stroke="#e8a020" stroke-width="1"/>
+            <line x1="35" y1="15" x2="35" y2="10" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="2 2"/>
+            <line x1="95" y1="15" x2="95" y2="10" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="2 2"/>
+            <line x1="35" y1="10" x2="95" y2="10" stroke="#e8a020" stroke-width="0.75"/>
+            <text x="65" y="8" fill="#e8a020" font-size="6" text-anchor="middle" font-family="monospace">60.00</text>
+          </svg>
+        </div>
+        <div class="drawing-body">
+          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Fusion 360 &mdash; CAD Technical Drawing</p>
+          <h3>Jigsaw Technical Drawing</h3>
+          <p>This technical drawing was generated from a 3D model of a jigsaw created in Autodesk Fusion 360. The project required proficiency in parametric modeling, accurate application of geometric dimensioning and tolerancing (GD&T) standards, and the ability to produce a clean, multi-view drawing sheet suitable for manufacturing or review. CAD-generated drawings bridge the gap between design intent and real-world fabrication — a skill increasingly demanded across all sectors of the engineering industry.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 <span>Cedrick Ziegler</span> &mdash; Mechanical Engineering, Louisiana State University &mdash; Expected May 2029</p>
+</footer>
+
+</body>
+</html>

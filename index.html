@@ -173,7 +173,23 @@
   .drawings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .drawing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: border-color 0.25s; }
   .drawing-card:hover { border-color: rgba(232,160,32,0.35); }
-  .drawing-preview { height: 200px; background: var(--surface2); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .drawing-preview {
+  width: 100%;
+  height: auto;          /* Changed from fixed height to auto */
+  min-height: 300px;     /* Keeps a base size */
+  background: #1a1a1a;   /* Dark background for the drawing to sit on */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.drawing-preview img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;   /* Changed from 'cover' to 'contain' so it doesn't crop */
+  display: block;
+}
   .blueprint-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(232,160,32,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(232,160,32,0.04) 1px, transparent 1px); background-size: 24px 24px; }
   .drawing-body { padding: 1.25rem 1.5rem; }
   .drawing-body h3 { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.4rem; }
@@ -332,16 +348,8 @@
 
       <div class="drawing-card">
         <div class="drawing-preview">
-          <img src="REP - Bearing Cartridge Drawing v1.pdf" alt="Stapler Teardown Drawing" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="REP - Bearing Cartridge Drawing v1.png" alt="Stapler Teardown Drawing" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
-        <div class="drawing-content">
-          <p class="drawing-label">HAND-DRAWN — DIMENSIONED SKETCH</p>
-          <h3 class="drawing-title">Stapler Teardown Drawing</h3>
-          <p class="drawing-description">
-            This hand-drawn dimensioned drawing was produced following a physical teardown of a standard desktop stapler...
-          </p>
-        </div>
-      </div>
         <div class="drawing-body">
           <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Hand-Drawn &mdash; Dimensioned Sketch</p>
           <h3>Stapler Teardown Drawing</h3>
@@ -350,25 +358,15 @@
       </div>
 
       <div class="drawing-card">
-        <div class="drawing-preview">
-          <div class="blueprint-grid"></div>
-          <svg width="130" height="90" viewBox="0 0 130 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="z-index:1; opacity:0.3;">
-            <rect x="15" y="15" width="80" height="50" rx="2" stroke="#e8a020" stroke-width="1.5"/>
-            <rect x="95" y="30" width="20" height="20" rx="1" stroke="#e8a020" stroke-width="1"/>
-            <circle cx="35" cy="35" r="8" stroke="#e8a020" stroke-width="1"/>
-            <line x1="35" y1="15" x2="35" y2="10" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="2 2"/>
-            <line x1="95" y1="15" x2="95" y2="10" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="2 2"/>
-            <line x1="35" y1="10" x2="95" y2="10" stroke="#e8a020" stroke-width="0.75"/>
-            <text x="65" y="8" fill="#e8a020" font-size="6" text-anchor="middle" font-family="monospace">60.00</text>
-          </svg>
-        </div>
+  <div class="drawing-preview">
+    <img src="Bearing Cartridge Top.png" alt="Bearing Cartridge Top" style="width: 100%; height: auto; object-fit: contain;">
+  </div>
         <div class="drawing-body">
           <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Fusion 360 &mdash; CAD Technical Drawing</p>
           <h3>Jigsaw Technical Drawing</h3>
           <p>This technical drawing was generated from a 3D model of a jigsaw created in Autodesk Fusion 360. The project required proficiency in parametric modeling, accurate application of geometric dimensioning and tolerancing (GD&T) standards, and the ability to produce a clean, multi-view drawing sheet suitable for manufacturing or review. CAD-generated drawings bridge the gap between design intent and real-world fabrication — a skill increasingly demanded across all sectors of the engineering industry.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>

@@ -28,7 +28,7 @@
   padding: 16px 45px; 
   
   /* Use this darker, premium gold */
-  background-color: #C19A2D; 
+  background-color: #ebbb36; 
   color: #000000;
   
   text-decoration: none;
@@ -123,7 +123,7 @@
 
   .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
   h2.section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; line-height: 1; margin-bottom: 2.5rem; color: var(--text); }
-  .divider { width: 48px; height: 2px; background: var(--accent); margin-bottom: 2rem; }
+  .divider { width: 100%; height: 2px; background: var(--accent); margin-bottom: 2rem; }
 
   #about .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   #about p { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; }
@@ -326,22 +326,22 @@
 <section id="drawings" style="background: var(--surface); max-width: 100%; padding: 5rem 0;">
   <div style="max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;">
     <p class="section-label">Technical Documentation</p>
-    <h2 class="section-title">TECHNICAL DRAWINGS</h2>
+    <h2 class="section-title"> DRAWINGS & MODELS</h2>
     <div class="divider"></div>
     <div class="drawings-grid">
 
       <div class="drawing-card">
         <div class="drawing-preview">
-          <div class="blueprint-grid"></div>
-          <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="z-index:1; opacity:0.3;">
-            <rect x="10" y="40" width="100" height="18" rx="2" stroke="#e8a020" stroke-width="1.5"/>
-            <rect x="10" y="20" width="60" height="22" rx="2" stroke="#e8a020" stroke-width="1.5"/>
-            <line x1="10" y1="40" x2="10" y2="8" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="3 2"/>
-            <line x1="110" y1="58" x2="110" y2="72" stroke="#e8a020" stroke-width="0.75" stroke-dasharray="3 2"/>
-            <line x1="5" y1="10" x2="75" y2="10" stroke="#e8a020" stroke-width="0.75"/>
-            <text x="40" y="8" fill="#e8a020" font-size="6" text-anchor="middle" font-family="monospace">3.50"</text>
-          </svg>
+          <img src="REP - Bearing Cartridge Drawing v1.pdf" alt="Stapler Teardown Drawing" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
+        <div class="drawing-content">
+          <p class="drawing-label">HAND-DRAWN — DIMENSIONED SKETCH</p>
+          <h3 class="drawing-title">Stapler Teardown Drawing</h3>
+          <p class="drawing-description">
+            This hand-drawn dimensioned drawing was produced following a physical teardown of a standard desktop stapler...
+          </p>
+        </div>
+      </div>
         <div class="drawing-body">
           <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Hand-Drawn &mdash; Dimensioned Sketch</p>
           <h3>Stapler Teardown Drawing</h3>

@@ -32,11 +32,13 @@
   color: #000000;
   
   text-decoration: none;
-  font-family: var(--font-display);
-  font-size: 1.1rem;    /* Larger text */
-  font-weight: 800;     /* Thicker letters */
-  letter-spacing: 2px;  /* Modern spacing */
-  text-transform: uppercase;
+  .resume-button {
+  font-family: var(--font-body); /* DM Sans */
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: none; /* Keeps it looking approachable but serious */
+}
   border: none;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -300,7 +302,7 @@
         <h3 style="font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Professional Resume</h3>
         <p>A comprehensive overview of my academic background, technical skill set, coursework, and project experience — formatted and ready for potential employers and internship opportunities.</p>
       </div>
-      <a href="Resume.pdf" target="_blank" class="resume-button">VIEW RESUME</a>
+      <a href="Resume.pdf" target="_blank" class="resume-button">VIEW RESUME ↗</a>
     </div>
   </div>
 </section>
@@ -351,43 +353,46 @@
           <img src="REP - Bearing Cartridge Drawing v1.png" alt="Stapler Teardown Drawing" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="drawing-body">
-          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Fusion 360 &mdash; Dimensioned Sketch</p>
-          <h3>Bearing Cartridge Drawing</h3>
+          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Reverse Engineering Project &mdash; Fusion 360</p>
+          <h3>Bearing Cartridge Dimensioned Sketch</h3>
           <p>This hand-drawn dimensioned drawing was produced following a physical teardown of a electric rotary sander. Creating this document required careful measurement with calipers, application of standard dimensioning conventions (including tolerance notation and reference lines), and the ability to translate a three-dimensional object into clear orthographic views. Freehand technical sketching remains a foundational engineering skill — fast, portable, and essential for rapid design communication in the field.</p>
         </div>
       </div>
 
       <div class="drawing-card">
   <div class="drawing-preview">
-    <img src="Bearing Cartridge Top.png" alt="Bearing Cartridge Top" style="width: 100%; height: auto; object-fit: contain;">
+    <img src="Bearing Cartridge Top.png" style="width: 100%; height: auto; object-fit: contain;">
   </div>
         <div class="drawing-body">
-          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Actual Photo &mdash; Top View</p>
-          <h3>Bearing Cartridge</h3>
+          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Reverse Engineering Project &mdash; Actual Photo</p>
+          <h3>Top View of Bearing Cartridge</h3>
           <p>This top-view photograph captures the bearing cartridge following a complete teardown of the drivetrain assembly. In engineering, physical documentation through photography is used to verify the "as-built" state of a product against technical specifications. This visual record allows for the inspection of surface finishes, material wear patterns, and real-world assembly tolerances that may not be fully captured in a theoretical CAD model.</p>
         </div>
       </div>
+
       <div class="drawing-card">
     <div class="drawing-preview" style="height: 350px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-      <img src="Spring Drawing.png" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      <img src="Spring Drawing.png" style="width: 100%; height: auto; object-fit: contain;">
     </div>
-    <div class="drawing-content" style="padding: 1.5rem; text-align: center;">
-      <p style="color: var(--accent); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Scanned Photo &mdash; Hand Sketch</p>
-      <h3>Spring Drawing</h3>
-      <p style="font-size: 0.9rem; line-height: 1.4;">Replace this text with a description of your third technical drawing or project component.</p>
-    </div>
-  </div>
+        <div class="drawing-body">
+          <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Individual Teardown Project &mdash; Scanned Photo</p>
+          <h3>Hand Sketch Spring Drawing</h3>
+          <p>This sketch documents the primary compression spring from a wind-up toy assembly, measured using digital calipers for high-precision accuracy. The drawing features a full orthographic side view and a detailed end-view to communicate coil pitch and wire diameter. In this mechanical system, the spring is designed to provide the restorative tension force necessary to reset the flick-lever mechanism after the backflip. Documenting these components are essential for understanding material elastic limits and the assembly tolerances required for products.</p>
+        </div>
+      </div>
 
-  <div class="drawing-card">
+      <div class="drawing-card">
     <div class="drawing-preview" style="height: 350px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-      <img src="Spring Side View.png" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      <img src="Spring Side View.png" style="width: 100%; height: auto; object-fit: contain;">
     </div>
-    <div class="drawing-content" style="padding: 1.5rem; text-align: center;">
-      <p style="color: var(--accent); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">Actual Photo &mdash; Side View</p>
-      <h3>Spring</h3>
-      <p style="font-size: 0.9rem; line-height: 1.4;">Replace this text with a description of your fourth technical drawing or project component.</p>
-</div>
+      <div class="drawing-body">
+        <p class="project-type" style="font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--accent); margin-bottom:0.35rem;">Individual Teardown Project &mdash; Actual Photo</p>
+        <h3>Side View of Spring</h3>
+        <p>This detailed side view captures the internal compression spring from the individual teardown wind-up toy assembly. In this context, the spring serves as a critical element, maintaining constant tension between the front frame piece of the toy and the flick lever to ensure smooth power transition and a reliable flip. Analyzing this component required evaluating its spring rate fatigue, as consistent mechanical tension is vital for the toy's longevity.</p>
+      </div>
+    </div>
   </div>
+</div>
 </section>
 
 <footer>
